@@ -15,6 +15,7 @@ var daddydiv;
 var dispH;
 var momtyle;
 var dadstyle;
+var rt3over2=0.866
 
 var articles = [
 	 {
@@ -191,32 +192,32 @@ function draw() {
 		stroke(255);
 		text("hacks", 0, ld+linkSize+(linkSize/8));
 		fill(color('rgba(255,255,255,1)'));
-		if(mouseOver((windowWidth/2)-(sqrt(3)/2)*(ld+(4*Math.cos(time/200))), (logoSize*(windowWidth/5))+(ld/2)+(4*Math.cos(time/200)), linkSize)) {
+		if(mouseOver((windowWidth/2)-(rt3over2)*(ld+(4*Math.cos(time/200))), (logoSize*(windowWidth/5))+(ld/2)+(4*Math.cos(time/200)), linkSize)) {
 			fill(color('rgba(255,255,255,0.5)'));
 			if(mouseIsPressed) page = 1;
 		}
 		stroke(0);
-		quad(-(sqrt(3)/2)*(ld+(4*Math.cos(time/200))), (ld/2)+(4*Math.cos(time/200)-linkSize), 
-							-(sqrt(3)/2)*(ld+(4*Math.cos(time/200)))+linkSize, (ld/2)+(4*Math.cos(time/200)),
-							-(sqrt(3)/2)*(ld+(4*Math.cos(time/200))), (ld/2)+(4*Math.cos(time/200))+(linkSize),
-							-linkSize-(sqrt(3)/2)*(ld+(4*Math.cos(time/200))), (ld/2)+(4*Math.cos(time/200)));
+		quad(-(rt3over2)*(ld+(4*Math.cos(time/200))), (ld/2)+(4*Math.cos(time/200)-linkSize), 
+							-(rt3over2)*(ld+(4*Math.cos(time/200)))+linkSize, (ld/2)+(4*Math.cos(time/200)),
+							-(rt3over2)*(ld+(4*Math.cos(time/200))), (ld/2)+(4*Math.cos(time/200))+(linkSize),
+							-linkSize-(rt3over2)*(ld+(4*Math.cos(time/200))), (ld/2)+(4*Math.cos(time/200)));
 		fill(color(0));
 		stroke(255);
-		text("music", -(sqrt(3)/2)*(ld+(4*Math.cos(time/200))), (ld/2)+(linkSize/8)+(4*Math.cos(time/200)));
+		text("music", -(rt3over2)*(ld+(4*Math.cos(time/200))), (ld/2)+(linkSize/8)+(4*Math.cos(time/200)));
 		stroke(0);
 		fill(color('rgba(255,255,255,1)'));
-		if(mouseOver((windowWidth/2)+(sqrt(3)/2)*(ld+(4*Math.cos(time/400))), (logoSize*(windowWidth/5))+(ld/2)+(4*Math.cos(time/400)), linkSize)) {
+		if(mouseOver((windowWidth/2)+(rt3over2)*(ld+(4*Math.cos(time/400))), (logoSize*(windowWidth/5))+(ld/2)+(4*Math.cos(time/400)), linkSize)) {
 			fill(color('rgba(255,255,255,0.5)'));
 			if(mouseIsPressed) page = 3;
 		}
 		stroke(0);
-		quad((sqrt(3)/2)*(ld+(4*Math.cos(time/400))), (ld/2)+(4*Math.cos(time/400)-linkSize), 
-							(sqrt(3)/2)*(ld+(4*Math.cos(time/400)))+linkSize, (ld/2)+(4*Math.cos(time/400)),
-							(sqrt(3)/2)*(ld+(4*Math.cos(time/400))), (ld/2)+(4*Math.cos(time/400))+(linkSize),
-							-linkSize+(sqrt(3)/2)*(ld+(4*Math.cos(time/400))), (ld/2)+(4*Math.cos(time/400)));
+		quad((rt3over2)*(ld+(4*Math.cos(time/400))), (ld/2)+(4*Math.cos(time/400)-linkSize), 
+							(rt3over2)*(ld+(4*Math.cos(time/400)))+linkSize, (ld/2)+(4*Math.cos(time/400)),
+							(rt3over2)*(ld+(4*Math.cos(time/400))), (ld/2)+(4*Math.cos(time/400))+(linkSize),
+							-linkSize+(rt3over2)*(ld+(4*Math.cos(time/400))), (ld/2)+(4*Math.cos(time/400)));
 		fill(color(0));
 		stroke(255);
-		text("contact", (sqrt(3)/2)*(ld+(4*Math.cos(time/400))), (ld/2)+(linkSize/8)+(4*Math.cos(time/400)));
+		text("contact", (rt3over2)*(ld+(4*Math.cos(time/400))), (ld/2)+(linkSize/8)+(4*Math.cos(time/400)));
 		stroke(0);
 		
 	if(mouseOver((windowWidth/2), logoSize*(windowWidth/5), logoSize*windowWidth/10)) {
