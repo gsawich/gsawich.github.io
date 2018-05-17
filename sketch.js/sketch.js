@@ -13,6 +13,8 @@ var sclink;
 var mommadiv;
 var daddydiv;
 var dispH;
+var momtyle;
+var dadstyle;
 
 var articles = [
 	 {
@@ -84,7 +86,7 @@ var articles = [
 			"type":"hack",
 			"title":"Raspberry Pi Packet Sniffer",
 			"description":
-			"This innocous little device is a fully automated, passive plug'n'play promiscuous Wireshark packet collector. \n More info <a href ='https://docs.google.com/presentation/d/13gKhPqni91q7Gcan7A6nPYA_7iR2CuMPuJ4jx6vkT2g/edit?usp=sharing'>here</a>.",
+			"This innocous little device is a fully automated, passive plug'n'play promiscuous Wireshark packet collector. More info <a href ='https://docs.google.com/presentation/d/13gKhPqni91q7Gcan7A6nPYA_7iR2CuMPuJ4jx6vkT2g/edit?usp=sharing'>here</a>",
 			"img":"/pics/raspacket.jpg"
 		},
 		{
@@ -114,8 +116,10 @@ function setup() {
  fblink.class("headLink");
  sclink.class("headLink");
 	daddydiv = createDiv("");
-
+ dadstyle = new p5.Element(daddydiv.elt);
  mommadiv = createDiv("");
+ momstyle = new p5.Element(mommadiv.elt);
+
  for(var i = 0; i < articles.length; i++){
  	var newdiv = createDiv("");
  	var newdivT = createElement('h2', articles[i].title);
@@ -257,10 +261,8 @@ function draw() {
 	text(title, 64, linkSize*3);
 	daddydiv.position(0,(linky/1.1)+(linkSize*4));
 	mommadiv.position(96, 0);
-	var momstyle = new p5.Element(mommadiv.elt);
  momstyle.style("background:"+bgcol);
  momstyle.style("margin:16");
- var dadstyle = new p5.Element(daddydiv.elt);
  dadstyle.style("background:"+bgcol);
  dadstyle.style("width:100%; height:100%");
  dadstyle.style("margin:16");
