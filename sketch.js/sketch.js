@@ -119,7 +119,8 @@ function setup() {
  dadstyle = new p5.Element(daddydiv.elt);
  mommadiv = createDiv("");
  momstyle = new p5.Element(mommadiv.elt);
-
+ frameRate(60);
+ 
  for(var i = 0; i < articles.length; i++){
  	var newdiv = createDiv("");
  	var newdivT = createElement('h2', articles[i].title);
@@ -148,7 +149,6 @@ function setup() {
  	mommadiv.child(newdiv);
  }
  	daddydiv.child(mommadiv);
-
 }
 
 function draw() {
