@@ -28,7 +28,7 @@ var articles = [
 			"type":"music",
 			"title":"Taste The Bass Season I",
 			"description":
-				"Taste The Bass was a weekly terrestrial radio show dedicated to showcasing the hottest and latest in the growing bass-music scene. Introducing the airwaves to post-dubstep, future beats, glitch-hop and more, this 10-episode season ran from September-December 2013 on WVUM 90.5FM",
+				"Taste The Bass was a weekly terrestrial radio show dedicated to showcaMath.sing the hottest and latest in the growing bass-music scene. Introducing the airwaves to post-dubstep, future beats, glitch-hop and more, this 10-episode season ran from September-December 2013 on WVUM 90.5FM",
 			"img":"/tastethebass/TasteTheBassBanner.png"
 		},
 		{
@@ -36,7 +36,7 @@ var articles = [
 			"type":"music",
 			"title":"Taste The Bass Season II",
 			"description":
-				"The collection of Taste The Bass mixes from January-May 2014, showcasing the hottest sounds from Jersey Club to Future Trap.",
+				"The collection of Taste The Bass mixes from January-May 2014, showcaMath.sing the hottest sounds from Jersey Club to Future Trap.",
 			"img":"/tastethebass/TasteTheBassBannerII.png"
 		},
 		{
@@ -94,7 +94,7 @@ var articles = [
 			"type":"hack",
 			"title":"Dionysus Brite",
 			"description":
-			"A three-piece sound-reactive LED costume.",
+			"A three-piece sound-reactive LED Math.costume.",
 			"img":"/pics/dionysus.jpg"
 		}
 	];
@@ -153,7 +153,7 @@ function setup() {
 
 function draw() {
 	time = (time+1);
-	var bgcol = color(15*abs(cos(time/500)),0,25);
+	var bgcol = color(15*abs(Math.cos(time/500)),0,25);
 	background(bgcol);
 	
 	imageMode(CENTER);
@@ -162,10 +162,10 @@ function draw() {
  for (i = 0; i < (pointDist/2); i++) {
 		stroke(color(255,255,255));
 		var distMod = (i/(pointDist/8))*logoSize;
-		point(i*(windowWidth/pointDist), (sin((i)+(time/200)))*(windowWidth/32)*distMod);
-		point(i*(windowWidth/pointDist), (cos((i)+(time/200)))*(windowWidth/32)*distMod);
-		point(-i*(windowWidth/pointDist), (sin((i)+(time/200)))*(windowWidth/32)*distMod)
-		point(-i*(windowWidth/pointDist), (cos((i)+(time/200)))*(windowWidth/32)*distMod);
+		point(i*(windowWidth/pointDist), (Math.sin((i)+(time/200)))*(windowWidth/32)*distMod);
+		point(i*(windowWidth/pointDist), (Math.cos((i)+(time/200)))*(windowWidth/32)*distMod);
+		point(-i*(windowWidth/pointDist), (Math.sin((i)+(time/200)))*(windowWidth/32)*distMod)
+		point(-i*(windowWidth/pointDist), (Math.cos((i)+(time/200)))*(windowWidth/32)*distMod);
 	}
 	
 		textAlign(CENTER);
@@ -173,48 +173,48 @@ function draw() {
 		stroke(255);
 		if (distance < windowWidth/6) distance*=1.04;
 		else distance=windowWidth/6;
-		var ld = distance+(0.5*distance*abs(sin(time/50)/(time/50)));
+		var ld = distance+(0.5*distance*abs(Math.sin(time/50)/(time/50)));
 		fill(color('rgba(255,255,255,1)'));
-		if(mouseOver(windowWidth/2, (logoSize*(windowWidth/5))+ld+(4*sin(time/100))+linkSize, linkSize)==true) {
+		if(mouseOver(windowWidth/2, (logoSize*(windowWidth/5))+ld+(4*Math.sin(time/100))+linkSize, linkSize)==true) {
 			fill(color('rgba(255,255,255,0.5)'));
 			if(mouseIsPressed) page = 2;
 		}
 		stroke(0);
-		quad(0, ld+(4*sin(time/100)),
-							linkSize, linkSize+ld+(4*sin(time/100)),
-							0, (2*linkSize)+ld+(4*sin(time/100)),
-							-linkSize, linkSize+ld+(4*sin(time/100)));
+		quad(0, ld+(4*Math.sin(time/100)),
+							linkSize, linkSize+ld+(4*Math.sin(time/100)),
+							0, (2*linkSize)+ld+(4*Math.sin(time/100)),
+							-linkSize, linkSize+ld+(4*Math.sin(time/100)));
 		textSize(linkSize/3);
 		fill(color(0));
 		stroke(255);
 		text("hacks", 0, ld+linkSize+(linkSize/8));
 		fill(color('rgba(255,255,255,1)'));
-		if(mouseOver((windowWidth/2)-(sqrt(3)/2)*(ld+(4*cos(time/200))), (logoSize*(windowWidth/5))+(ld/2)+(4*cos(time/200)), linkSize)) {
+		if(mouseOver((windowWidth/2)-(sqrt(3)/2)*(ld+(4*Math.cos(time/200))), (logoSize*(windowWidth/5))+(ld/2)+(4*Math.cos(time/200)), linkSize)) {
 			fill(color('rgba(255,255,255,0.5)'));
 			if(mouseIsPressed) page = 1;
 		}
 		stroke(0);
-		quad(-(sqrt(3)/2)*(ld+(4*cos(time/200))), (ld/2)+(4*cos(time/200)-linkSize), 
-							-(sqrt(3)/2)*(ld+(4*cos(time/200)))+linkSize, (ld/2)+(4*cos(time/200)),
-							-(sqrt(3)/2)*(ld+(4*cos(time/200))), (ld/2)+(4*cos(time/200))+(linkSize),
-							-linkSize-(sqrt(3)/2)*(ld+(4*cos(time/200))), (ld/2)+(4*cos(time/200)));
+		quad(-(sqrt(3)/2)*(ld+(4*Math.cos(time/200))), (ld/2)+(4*Math.cos(time/200)-linkSize), 
+							-(sqrt(3)/2)*(ld+(4*Math.cos(time/200)))+linkSize, (ld/2)+(4*Math.cos(time/200)),
+							-(sqrt(3)/2)*(ld+(4*Math.cos(time/200))), (ld/2)+(4*Math.cos(time/200))+(linkSize),
+							-linkSize-(sqrt(3)/2)*(ld+(4*Math.cos(time/200))), (ld/2)+(4*Math.cos(time/200)));
 		fill(color(0));
 		stroke(255);
-		text("music", -(sqrt(3)/2)*(ld+(4*cos(time/200))), (ld/2)+(linkSize/8)+(4*cos(time/200)));
+		text("music", -(sqrt(3)/2)*(ld+(4*Math.cos(time/200))), (ld/2)+(linkSize/8)+(4*Math.cos(time/200)));
 		stroke(0);
 		fill(color('rgba(255,255,255,1)'));
-		if(mouseOver((windowWidth/2)+(sqrt(3)/2)*(ld+(4*cos(time/400))), (logoSize*(windowWidth/5))+(ld/2)+(4*cos(time/400)), linkSize)) {
+		if(mouseOver((windowWidth/2)+(sqrt(3)/2)*(ld+(4*Math.cos(time/400))), (logoSize*(windowWidth/5))+(ld/2)+(4*Math.cos(time/400)), linkSize)) {
 			fill(color('rgba(255,255,255,0.5)'));
 			if(mouseIsPressed) page = 3;
 		}
 		stroke(0);
-		quad((sqrt(3)/2)*(ld+(4*cos(time/400))), (ld/2)+(4*cos(time/400)-linkSize), 
-							(sqrt(3)/2)*(ld+(4*cos(time/400)))+linkSize, (ld/2)+(4*cos(time/400)),
-							(sqrt(3)/2)*(ld+(4*cos(time/400))), (ld/2)+(4*cos(time/400))+(linkSize),
-							-linkSize+(sqrt(3)/2)*(ld+(4*cos(time/400))), (ld/2)+(4*cos(time/400)));
+		quad((sqrt(3)/2)*(ld+(4*Math.cos(time/400))), (ld/2)+(4*Math.cos(time/400)-linkSize), 
+							(sqrt(3)/2)*(ld+(4*Math.cos(time/400)))+linkSize, (ld/2)+(4*Math.cos(time/400)),
+							(sqrt(3)/2)*(ld+(4*Math.cos(time/400))), (ld/2)+(4*Math.cos(time/400))+(linkSize),
+							-linkSize+(sqrt(3)/2)*(ld+(4*Math.cos(time/400))), (ld/2)+(4*Math.cos(time/400)));
 		fill(color(0));
 		stroke(255);
-		text("contact", (sqrt(3)/2)*(ld+(4*cos(time/400))), (ld/2)+(linkSize/8)+(4*cos(time/400)));
+		text("contact", (sqrt(3)/2)*(ld+(4*Math.cos(time/400))), (ld/2)+(linkSize/8)+(4*Math.cos(time/400)));
 		stroke(0);
 		
 	if(mouseOver((windowWidth/2), logoSize*(windowWidth/5), logoSize*windowWidth/10)) {
