@@ -84,7 +84,7 @@ var articles = [
 			"type":"hack",
 			"title":"Raspberry Pi Packet Sniffer",
 			"description":
-			"This innocous little device is a fully automated, passive plug'n'play promiscuous Wireshark packet collector.",
+			"This innocous little device is a fully automated, passive plug'n'play promiscuous Wireshark packet collector. \n More info <a href ='https://docs.google.com/presentation/d/13gKhPqni91q7Gcan7A6nPYA_7iR2CuMPuJ4jx6vkT2g/edit?usp=sharing'>here</a>",
 			"img":"/pics/raspacket.jpg"
 		},
 		{
