@@ -100,7 +100,9 @@ var articles = [
 	];
 
 function preload() {
-		logo = loadImage("LogoRot.png");
+	logo = loadImage("LogoRot.png");
+	p5.disableFriendlyErrors = true;
+
 }
 
 function setup() {
