@@ -15,6 +15,7 @@ var daddydiv;
 var dispH;
 var momtyle;
 var dadstyle;
+var linky;
 var rt3over2=0.866
 
 var articles = [
@@ -100,9 +101,10 @@ var articles = [
 		}
 	];
 
+	p5.disableFriendlyErrors = true;
+
 function preload() {
 	logo = loadImage("LogoRot.png");
-	p5.disableFriendlyErrors = true;
 
 }
 
@@ -122,7 +124,9 @@ function setup() {
  dadstyle = new p5.Element(daddydiv.elt);
  mommadiv = createDiv("");
  momstyle = new p5.Element(mommadiv.elt);
- frameRate(60);
+
+
+ //frameRate(60);
  
  for(var i = 0; i < articles.length; i++){
  	var newdiv = createDiv("");
@@ -151,24 +155,32 @@ function setup() {
  	
  	mommadiv.child(newdiv);
  }
- 	daddydiv.child(mommadiv);
+ daddydiv.child(mommadiv);
+
 }
 
 function draw() {
 	time = (time+1);
+ var cosover400 = 4*Math.cos(time/400);
+ var cosover200 = 4*Math.cos(time/200);
+ var sinover100 = 4*Math.sin(time/100);
+
 	var bgcol = color(15*abs(Math.cos(time/500)),0,25);
 	background(bgcol);
 	
 	imageMode(CENTER);
 	translate(windowWidth/2, logoSize*(windowWidth/5));
 	strokeWeight(4);
+	stroke(color(255,255,255));
+
  for (i = 0; i < (pointDist/2); i++) {
-		stroke(color(255,255,255));
 		var distMod = (i/(pointDist/8))*logoSize;
-		point(i*(windowWidth/pointDist), (Math.sin((i)+(time/200)))*(windowWidth/32)*distMod);
-		point(i*(windowWidth/pointDist), (Math.cos((i)+(time/200)))*(windowWidth/32)*distMod);
-		point(-i*(windowWidth/pointDist), (Math.sin((i)+(time/200)))*(windowWidth/32)*distMod)
-		point(-i*(windowWidth/pointDist), (Math.cos((i)+(time/200)))*(windowWidth/32)*distMod);
+		var siniover200 = Math.sin((i)+(time/200));
+  var cosiover200 = Math.cos((i)+(time/200));
+		point(i*(windowWidth/pointDist), (siniover200)*(windowWidth/32)*distMod);
+		point(i*(windowWidth/pointDist), (cosiover200)*(windowWidth/32)*distMod);
+		point(-i*(windowWidth/pointDist), (siniover200)*(windowWidth/32)*distMod)
+		point(-i*(windowWidth/pointDist), (cosiover200)*(windowWidth/32)*distMod);
 	}
 	
 		textAlign(CENTER);
@@ -178,46 +190,46 @@ function draw() {
 		else distance=windowWidth/6;
 		var ld = distance+(0.5*distance*abs(Math.sin(time/50)/(time/50)));
 		fill(color('rgba(255,255,255,1)'));
-		if(mouseOver(windowWidth/2, (logoSize*(windowWidth/5))+ld+(4*Math.sin(time/100))+linkSize, linkSize)==true) {
+		if(mouseOver(windowWidth/2, (logoSize*(windowWidth/5))+ld+(sinover100)+linkSize, linkSize)==true) {
 			fill(color('rgba(255,255,255,0.5)'));
 			if(mouseIsPressed) page = 2;
 		}
 		stroke(0);
-		quad(0, ld+(4*Math.sin(time/100)),
-							linkSize, linkSize+ld+(4*Math.sin(time/100)),
-							0, (2*linkSize)+ld+(4*Math.sin(time/100)),
-							-linkSize, linkSize+ld+(4*Math.sin(time/100)));
+		quad(0, ld+(sinover100),
+							linkSize, linkSize+ld+(sinover100),
+							0, (2*linkSize)+ld+(sinover100),
+							-linkSize, linkSize+ld+(sinover100));
 		textSize(linkSize/3);
 		fill(color(0));
 		stroke(255);
 		text("hacks", 0, ld+linkSize+(linkSize/8));
 		fill(color('rgba(255,255,255,1)'));
-		if(mouseOver((windowWidth/2)-(rt3over2)*(ld+(4*Math.cos(time/200))), (logoSize*(windowWidth/5))+(ld/2)+(4*Math.cos(time/200)), linkSize)) {
+		if(mouseOver((windowWidth/2)-(rt3over2)*(ld+(cosover200)), (logoSize*(windowWidth/5))+(ld/2)+(cosover200), linkSize)) {
 			fill(color('rgba(255,255,255,0.5)'));
 			if(mouseIsPressed) page = 1;
 		}
 		stroke(0);
-		quad(-(rt3over2)*(ld+(4*Math.cos(time/200))), (ld/2)+(4*Math.cos(time/200)-linkSize), 
-							-(rt3over2)*(ld+(4*Math.cos(time/200)))+linkSize, (ld/2)+(4*Math.cos(time/200)),
-							-(rt3over2)*(ld+(4*Math.cos(time/200))), (ld/2)+(4*Math.cos(time/200))+(linkSize),
-							-linkSize-(rt3over2)*(ld+(4*Math.cos(time/200))), (ld/2)+(4*Math.cos(time/200)));
+		quad(-(rt3over2)*(ld+(cosover200)), (ld/2)+(cosover200-linkSize), 
+							-(rt3over2)*(ld+(cosover200))+linkSize, (ld/2)+(cosover200),
+							-(rt3over2)*(ld+(cosover200)), (ld/2)+(cosover200)+(linkSize),
+							-linkSize-(rt3over2)*(ld+(cosover200)), (ld/2)+(cosover200));
 		fill(color(0));
 		stroke(255);
-		text("music", -(rt3over2)*(ld+(4*Math.cos(time/200))), (ld/2)+(linkSize/8)+(4*Math.cos(time/200)));
+		text("music", -(rt3over2)*(ld+(cosover200)), (ld/2)+(linkSize/8)+(cosover200));
 		stroke(0);
 		fill(color('rgba(255,255,255,1)'));
-		if(mouseOver((windowWidth/2)+(rt3over2)*(ld+(4*Math.cos(time/400))), (logoSize*(windowWidth/5))+(ld/2)+(4*Math.cos(time/400)), linkSize)) {
+		if(mouseOver((windowWidth/2)+(rt3over2)*(ld+(cosover400)), (logoSize*(windowWidth/5))+(ld/2)+(cosover400), linkSize)) {
 			fill(color('rgba(255,255,255,0.5)'));
 			if(mouseIsPressed) page = 3;
 		}
 		stroke(0);
-		quad((rt3over2)*(ld+(4*Math.cos(time/400))), (ld/2)+(4*Math.cos(time/400)-linkSize), 
-							(rt3over2)*(ld+(4*Math.cos(time/400)))+linkSize, (ld/2)+(4*Math.cos(time/400)),
-							(rt3over2)*(ld+(4*Math.cos(time/400))), (ld/2)+(4*Math.cos(time/400))+(linkSize),
-							-linkSize+(rt3over2)*(ld+(4*Math.cos(time/400))), (ld/2)+(4*Math.cos(time/400)));
+		quad((rt3over2)*(ld+(cosover400)), (ld/2)+(cosover400-linkSize), 
+							(rt3over2)*(ld+(cosover400))+linkSize, (ld/2)+(cosover400),
+							(rt3over2)*(ld+(cosover400)), (ld/2)+(cosover400)+(linkSize),
+							-linkSize+(rt3over2)*(ld+(cosover400)), (ld/2)+(cosover400));
 		fill(color(0));
 		stroke(255);
-		text("contact", (rt3over2)*(ld+(4*Math.cos(time/400))), (ld/2)+(linkSize/8)+(4*Math.cos(time/400)));
+		text("contact", (rt3over2)*(ld+(cosover400)), (ld/2)+(linkSize/8)+(cosover400));
 		stroke(0);
 		
 	if(mouseOver((windowWidth/2), logoSize*(windowWidth/5), logoSize*windowWidth/10)) {
@@ -233,7 +245,7 @@ function draw() {
 	textSize(linkSize/2);
 	text("Gabriel Sawich", 32, 0);
 	textSize(linkSize/4);
-	var linky = logoSize*(windowWidth/2.5);
+	linky = logoSize*(windowWidth/2.5);
 	gitlink.position(40, linky+(linkSize/2));
 	fblink.position(40, linky+(linkSize));
 	sclink.position(40, linky+(linkSize*1.5));
@@ -262,14 +274,13 @@ function draw() {
 	
 	textSize(linkSize);
 	text(title, 64, linkSize*3);
-	daddydiv.position(0,(linky/1.1)+(linkSize*4));
-	mommadiv.position(96, 0);
- momstyle.style("background:"+bgcol);
- momstyle.style("margin:16");
- dadstyle.style("background:"+bgcol);
+	momstyle.style("background:"+bgcol);
+	dadstyle.style("background:"+bgcol);
+	momstyle.style("margin:16");
  dadstyle.style("width:100%; height:100%");
  dadstyle.style("margin:16");
-
+  daddydiv.position(0,(linky/1.1)+(linkSize*4));
+	mommadiv.position(96, 0);
 }
 
 function mouseOver(x, y, size) {
